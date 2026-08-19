@@ -45,10 +45,6 @@ export function Carousel({
           style={{ transform: `translateX(-${index * 100}%)` }}
         >
           {slides.map((slide) => {
-            const caption =
-              captionMode === "label"
-                ? slide.label
-                : `${slide.title}${slide.desc ? ` — ${slide.desc}` : ""}`;
             return (
               <div className="car-slide" key={slide.img + (slide.title || slide.label)}>
                 <div className="art-img">
@@ -94,6 +90,7 @@ export function Carousel({
           <button
             key={slide.img + i}
             type="button"
+            role="tab"
             className={`dot${i === index ? " active" : ""}`}
             aria-label={`Go to slide ${i + 1}`}
             aria-selected={i === index}
