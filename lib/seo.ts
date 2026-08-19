@@ -10,10 +10,13 @@ export function absoluteUrl(path = "/"): string {
     return path;
   }
   const normalized = path.startsWith("/") ? path : `/${path}`;
+  // Prefer no trailing slash except for root if needed.
+  // Homepage canonical emitted by Next Metadata uses host without slash;
+  // keep sitemap loc as `${SITE_URL}/` which Google treats as the homepage.
   if (normalized === "/") {
     return `${SITE_URL}/`;
   }
-  return `${SITE_URL}${normalized}`;
+  return `${SITE_URL}${normalized.replace(/\/$/, "")}`;
 }
 
 export const indexableRoutes = [
