@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { mobileNavLinks, navLinks } from "@/content/site";
 import { useEnquiry } from "@/components/EnquiryProvider";
@@ -59,7 +60,7 @@ export function Header() {
         className={scrolled ? "scrolled" : undefined}
       >
         <div className="container nav-wrap">
-          <a href="#hero" className="logo">
+          <Link href="/" className="logo" title="LINQ by Raghava homepage">
             <Image
               src="/images/linq-logo.png"
               alt="LINQ Real Estate"
@@ -68,28 +69,29 @@ export function Header() {
               className="logo-img"
               priority
             />
-          </a>
+          </Link>
 
           <nav className="desktop-nav" aria-label="Primary">
             <ul>
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
+                    title={link.title}
                     className={active === link.section ? "active" : undefined}
                     data-section={link.section}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </nav>
 
           <div className="header-actions">
-            <a
-              href="#contact"
-              title="RAGHAVA Real Estate"
+            <Link
+              href="/#contact"
+              title="Contact LINQ by GoRealty sales team"
               onClick={(e) => {
                 e.preventDefault();
                 openEnquiry();
@@ -102,7 +104,7 @@ export function Header() {
                 height={54}
                 className="raghava-header-logo"
               />
-            </a>
+            </Link>
             <button
               type="button"
               className="menu-toggle"
@@ -131,7 +133,12 @@ export function Header() {
         aria-hidden={!menuOpen}
       >
         <div className="mobile-menu-head">
-          <a href="#hero" className="mobile-menu-logo" onClick={closeMenu}>
+          <Link
+            href="/"
+            className="mobile-menu-logo"
+            title="LINQ by Raghava homepage"
+            onClick={closeMenu}
+          >
             <Image
               src="/images/linq-logo.png"
               alt="LINQ"
@@ -140,7 +147,7 @@ export function Header() {
               className="logo-img"
               style={{ height: 32, width: "auto" }}
             />
-          </a>
+          </Link>
           <button
             type="button"
             className="mobile-menu-close"
@@ -160,9 +167,9 @@ export function Header() {
         <ul className="mobile-menu-list">
           {mobileNavLinks.map((link) => (
             <li key={link.href}>
-              <a href={link.href} onClick={closeMenu}>
+              <Link href={link.href} title={link.title} onClick={closeMenu}>
                 {link.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

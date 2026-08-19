@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { welcomeHome } from "@/content/site";
 import { Reveal } from "@/components/Reveal";
 
@@ -10,9 +11,10 @@ export function WelcomeHome() {
           <Reveal className="eyebrow">{welcomeHome.eyebrow}</Reveal>
           <Reveal as="p">{welcomeHome.body}</Reveal>
           <Reveal>
-            <a
-              href="#amenities"
+            <Link
+              href="/#amenities"
               className="btn-primary"
+              title="Explore LINQ Kokapet amenities and lifestyle"
               style={{
                 marginTop: "1.5rem",
                 display: "inline-block",
@@ -21,7 +23,7 @@ export function WelcomeHome() {
               }}
             >
               {welcomeHome.cta}
-            </a>
+            </Link>
           </Reveal>
         </div>
         <div style={{ marginTop: "3rem" }}>

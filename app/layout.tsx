@@ -5,6 +5,7 @@ import {
   JetBrains_Mono,
 } from "next/font/google";
 import { siteMeta } from "@/content/site";
+import { absoluteUrl, SITE_URL } from "@/lib/seo";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -30,25 +31,44 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteMeta.canonical),
-  title: siteMeta.title,
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: siteMeta.title,
+    template: `%s | ${siteMeta.siteName}`,
+  },
   description: siteMeta.description,
+  applicationName: siteMeta.siteName,
+  authors: [{ name: "GoRealty" }],
+  creator: "GoRealty",
+  publisher: "GoRealty",
+  category: "real estate",
+  keywords: [
+    "LINQ",
+    "LINQ by Raghava",
+    "The Linq by GoRealty",
+    "Kokapet",
+    "Hyderabad",
+    "3 BHK",
+    "Neopolis",
+    "GoRealty",
+  ],
   alternates: {
-    canonical: siteMeta.canonical,
+    // Self-referencing absolute HTTPS canonical (homepage)
+    canonical: `${SITE_URL}/`,
   },
   openGraph: {
     title: siteMeta.title,
     description: siteMeta.description,
-    url: siteMeta.canonical,
-    siteName: "LINQ by Raghava",
-    locale: "en_IN",
+    url: `${SITE_URL}/`,
+    siteName: siteMeta.siteName,
+    locale: siteMeta.locale,
     type: "website",
     images: [
       {
-        url: "/images/hero-banner.webp",
+        url: absoluteUrl(siteMeta.ogImage),
         width: 1200,
         height: 630,
-        alt: "LINQ by Raghava Four Towers",
+        alt: "LINQ by Raghava Four Towers in Kokapet",
       },
     ],
   },
@@ -56,11 +76,21 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteMeta.title,
     description: siteMeta.description,
-    images: ["/images/hero-banner.webp"],
+    images: [absoluteUrl(siteMeta.ogImage)],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  other: {
+    "color-scheme": "light only",
   },
 };
 
@@ -71,7 +101,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="en-IN"
       className={`${cormorant.variable} ${manrope.variable} ${jetbrains.variable}`}
     >
       <body>

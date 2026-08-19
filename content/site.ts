@@ -1,34 +1,99 @@
 export const siteMeta = {
-  title: "The Linq by GoRealty",
+  title: "The Linq by GoRealty | LINQ by Raghava Kokapet",
   description:
-    "The Linq by GoRealty — four signature towers of refined residences, set on 9.2 acres.",
+    "The Linq by GoRealty — four signature towers of refined residences in Kokapet, set on 9.2 acres. Premium lakeview 3 BHK residences one minute from Neopolis.",
+  shortTitle: "The Linq by GoRealty",
   canonical: "https://linq.gorealtyprophub.com/",
   phone: "+919989860099",
   // TODO: VERIFY — live site uses mailto:gorealtyprophub.com (appears incomplete)
   email: "gorealtyprophub.com",
   // TODO: VERIFY RERA number against official records
   rera: "A02500004618",
+  ogImage: "/images/hero-banner.webp",
+  locale: "en_IN",
+  siteName: "LINQ by Raghava",
 };
 
 export const navLinks = [
-  { href: "#offerings", label: "Overview", section: "offerings" },
-  { href: "#pricing", label: "Pricing", section: "pricing" },
-  { href: "#amenities", label: "Amenities", section: "amenities" },
-  { href: "#sitemap", label: "Site Map", section: "sitemap" },
-  { href: "#location", label: "Location", section: "location" },
+  {
+    href: "/#offerings",
+    label: "Overview",
+    section: "offerings",
+    title: "LINQ by Raghava project overview",
+  },
+  {
+    href: "/#pricing",
+    label: "Pricing",
+    section: "pricing",
+    title: "LINQ Kokapet price overview",
+  },
+  {
+    href: "/#amenities",
+    label: "Amenities",
+    section: "amenities",
+    title: "LINQ Kokapet amenities and lifestyle",
+  },
+  {
+    href: "/#sitemap",
+    label: "Site Map",
+    section: "sitemap",
+    title: "LINQ Kokapet master site plan",
+  },
+  {
+    href: "/#location",
+    label: "Location",
+    section: "location",
+    title: "LINQ Kokapet location advantages",
+  },
 ] as const;
 
 export const mobileNavLinks = [
-  { href: "#hero", label: "Home" },
-  { href: "#offerings", label: "Overview" },
-  { href: "#highlights", label: "Highlights" },
-  { href: "#pricing", label: "Price Overview" },
-  { href: "#amenities", label: "Amenities" },
-  { href: "#sitemap", label: "Site Map" },
-  { href: "#floorplans", label: "Floor Plans" },
-  { href: "#journey", label: "Visual Journey" },
-  { href: "#location", label: "Location Advantages" },
-  { href: "#contact", label: "Contact Us" },
+  { href: "/#hero", label: "Home", title: "LINQ by Raghava homepage" },
+  {
+    href: "/#offerings",
+    label: "Overview",
+    title: "LINQ by Raghava project overview",
+  },
+  {
+    href: "/#highlights",
+    label: "Highlights",
+    title: "LINQ Kokapet residence highlights",
+  },
+  {
+    href: "/#pricing",
+    label: "Price Overview",
+    title: "LINQ Kokapet price overview",
+  },
+  {
+    href: "/#amenities",
+    label: "Amenities",
+    title: "LINQ Kokapet amenities and lifestyle",
+  },
+  {
+    href: "/#sitemap",
+    label: "Site Map",
+    title: "LINQ Kokapet master site plan",
+  },
+  {
+    href: "/#floorplans",
+    label: "Floor Plans",
+    title: "View LINQ Kokapet floor plans",
+  },
+  {
+    href: "/#journey",
+    label: "Visual Journey",
+    title: "LINQ visual journey gallery",
+  },
+  {
+    href: "/#location",
+    label: "Location Advantages",
+    title: "LINQ Kokapet location advantages",
+  },
+  {
+    href: "/#contact",
+    label: "Contact Us",
+    title: "Contact LINQ by GoRealty sales team",
+  },
 ] as const;
 
 export const hero = {

@@ -105,3 +105,62 @@ textarea:focus-visible {
   margin: 0;
   padding: 0;
 }
+
+/* Phase 2 — crawlable footer section links (discreet, matches footer) */
+.footer-seo-nav {
+  margin: 1.4rem auto 1.6rem;
+  max-width: 920px;
+}
+
+.footer-seo-nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55rem 1.1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-seo-nav a {
+  color: #ffffffa6;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.footer-seo-nav a:hover,
+.footer-seo-nav a:focus-visible {
+  color: var(--gold);
+}
+
+.breadcrumbs {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--dark-gray);
+  margin: 0 auto;
+  max-width: 1240px;
+  padding: 5.5rem 2rem 0;
+}
+
+.breadcrumbs ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.breadcrumbs a {
+  color: var(--navy);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.breadcrumbs-sep {
+  color: var(--gold);
+  margin-left: 0.15rem;
+}

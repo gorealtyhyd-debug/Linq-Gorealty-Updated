@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { hero } from "@/content/site";
 import { useEnquiry } from "@/components/EnquiryProvider";
 import { Reveal } from "@/components/Reveal";
@@ -73,9 +74,13 @@ export function Hero() {
           <button type="button" className="btn-primary" onClick={openEnquiry}>
             {hero.primaryCta}
           </button>
-          <a href="#amenities" className="btn-secondary">
+          <Link
+            href="/#amenities"
+            className="btn-secondary"
+            title="Explore LINQ Kokapet amenities and lifestyle"
+          >
             {hero.secondaryCta}
-          </a>
+          </Link>
         </Reveal>
       </div>
     </section>
