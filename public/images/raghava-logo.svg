@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" width="160" height="120">
+  <rect width="160" height="120" rx="8" fill="#18322B"/>
+  <g fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Base line -->
+    <path d="M 32 72 L 128 72" />
+    <!-- Bldg 1 -->
+    <path d="M 38 72 V 46 H 52 V 72" />
+    <!-- Bldg 2 -->
+    <path d="M 52 72 V 54 H 61 V 72" />
+    <!-- Center Spire Tower -->
+    <path d="M 61 72 V 34 L 75 16 L 89 34 V 72" />
+    <!-- Bldg with R shape -->
+    <path d="M 89 72 V 42 H 104 V 72" />
+    <path d="M 94 48 H 100 C 102 48 103 49.2 103 51 C 103 52.8 102 54 100 54 H 94 M 98 54 L 103 62" />
+    <!-- Right bldg -->
+    <path d="M 104 72 V 52 H 122 V 72" />
+  </g>
+  <!-- Text RAGHAVA -->
+  <text x="80" y="99" fill="#FFFFFF" font-family="'Cinzel', 'Playfair Display', Georgia, serif" font-size="18" font-weight="700" letter-spacing="3.5" text-anchor="middle">RAGHAVA</text>
+</svg>

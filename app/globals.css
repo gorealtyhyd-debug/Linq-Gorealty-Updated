@@ -1,0 +1,107 @@
+@import "tailwindcss";
+@import "../styles/linq.css";
+
+/*
+  Reveal animation: content stays visible without JS (SEO + failed-chunk safety).
+  Only hide when html.js is present; Reveal.tsx adds .visible on intersect.
+*/
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(26px);
+}
+
+html.js .reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html.js #hero .reveal.visible {
+  transition-duration: 1s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.spec-body h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-family: var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--navy);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* next/image fill helpers — counteract Tailwind preflight img { height:auto } */
+.art-img,
+.offering-card-img,
+.car-slide .art-img {
+  position: relative;
+}
+
+.hero-bg-img {
+  position: absolute;
+}
+
+.hero-bg-img img,
+.art-img img,
+.offering-card-img img {
+  max-width: none !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.car-arrow {
+  appearance: none;
+  font: inherit;
+}
+
+.car-dots .dot {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+}
+
+.logo-img {
+  width: auto;
+  height: 40px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* Ensure location list works when Reveal wraps with class loc-list */
+.loc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
