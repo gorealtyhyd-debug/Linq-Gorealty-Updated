@@ -35,11 +35,23 @@
   border: 0;
 }
 
-/* next/image fill helpers */
+/* next/image fill helpers — counteract Tailwind preflight img { height:auto } */
 .art-img,
 .offering-card-img,
-.hero-bg-img {
+.car-slide .art-img {
   position: relative;
+}
+
+.hero-bg-img {
+  position: absolute;
+}
+
+.hero-bg-img img,
+.art-img img,
+.offering-card-img img {
+  max-width: none !important;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .car-arrow {
