@@ -19,6 +19,12 @@ export function Reveal({
     const el = ref.current;
     if (!el) return;
 
+    // Safety: if IntersectionObserver is unavailable, show immediately
+    if (typeof IntersectionObserver === "undefined") {
+      el.classList.add("visible");
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -28,11 +34,23 @@ export function Reveal({
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+      { threshold: 0.08, rootMargin: "0px 0px -10% 0px" },
     );
 
     observer.observe(el);
-    return () => observer.disconnect();
+
+    // Fallback: never leave content permanently hidden
+    const fallback = window.setTimeout(() => {
+      if (!el.classList.contains("visible")) {
+        el.classList.add("visible");
+        observer.unobserve(el);
+      }
+    }, 2500);
+
+    return () => {
+      window.clearTimeout(fallback);
+      observer.disconnect();
+    };
   }, []);
 
   return (

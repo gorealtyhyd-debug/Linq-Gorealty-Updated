@@ -74,7 +74,14 @@ export default function RootLayout({
       lang="en"
       className={`${cormorant.variable} ${manrope.variable} ${jetbrains.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.classList.add('js');`,
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

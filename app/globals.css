@@ -1,8 +1,21 @@
 @import "tailwindcss";
 @import "../styles/linq.css";
 
-/* Phase 1 supplements for Next.js / a11y / reveal (GSAP replaced with IntersectionObserver) */
-.reveal.visible {
+/*
+  Reveal animation: content stays visible without JS (SEO + failed-chunk safety).
+  Only hide when html.js is present; Reveal.tsx adds .visible on intersect.
+*/
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(26px);
+}
+
+html.js .reveal.visible {
   opacity: 1;
   transform: translateY(0);
   transition:
@@ -10,8 +23,15 @@
     transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-#hero .reveal.visible {
+html.js #hero .reveal.visible {
   transition-duration: 1s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .spec-body h3 {
